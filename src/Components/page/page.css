@@ -1,0 +1,124 @@
+.pagee {
+  height: 657px;
+  /* padding: 50px; */
+  width: 100%;
+  padding-top: 50px;
+  background-image: linear-gradient(109.6deg, rgba(156, 252, 248, 1) 11.2%, rgba(110, 123, 251, 1) 91.1%);
+}
+
+.page-chucnang {
+  display: flex;
+  height: 200px;
+  width: 80%;
+  margin: auto;
+}
+
+.page-thongtin {
+  display: flex;
+  width: 31.33%;
+  /* justify-content: center;
+    align-items: center; */
+  font-size: 25px;
+  font-weight: 500;
+  background-color: #f2e9e8;
+  transform: translateZ(50px);
+  /* Dịch phần tử lên theo trục Z */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  /* Đổ bóng */
+  margin: 10px 10px;
+}
+
+.anhsang {
+  color: rgba(163, 163, 25, 0.689);
+}
+
+.page-btn {
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
+
+.page-bieudo {
+  display: inline;
+  width: 62.3%;
+  background-color: #f2e9e8;
+  transform: translateZ(50px);
+  /* Dịch phần tử lên theo trục Z */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  /* Đổ bóng */
+  margin: 10px 10px;
+}
+
+.page-btn-chucnang {
+  width: 31.2%;
+  margin-right: 10px;
+}
+
+.page-btn-den,
+.page-btn-quat {
+  height: 190px;
+  background-image: linear-gradient(-20deg,
+      #80ccbf 0%,
+      #bfbf58 100%);
+  border-radius: 20px;
+  transform: translateZ(50px);
+  /* Dịch phần tử lên theo trục Z */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  /* Đổ bóng */
+  margin: 10px 10px;
+}
+
+
+
+.light-btn {
+  background-color: #95a5a6;
+  border: none;
+  border-radius: 50px;
+  width: 80px;
+  height: 40px;
+  cursor: pointer;
+  position: relative;
+}
+
+.light-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  transition: left 0.3s, background-color 0.3s;
+}
+
+.light-btn.on {
+  background-color: #2196F3;
+}
+
+.light-btn.on .light-icon {
+  left: 45px;
+  background-color: #ffffff;
+}
+
+.btn-icon {
+  padding-top: 30px;
+  text-align: center;
+}
+
+.btn-icon-den {
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  margin-bottom: 10px;
+}
+
+/* css Menu */
+.menuu{
+  display: block;
+  z-index: 10;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 50;
+}
