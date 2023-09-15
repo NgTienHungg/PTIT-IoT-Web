@@ -60,7 +60,9 @@
   height: 690px;
 }
 .linkmenu {
+  font-size: 20px;
   text-decoration: none;
+  margin: 10px 10px;
 }
 .linkmenu:hover {
   background-color: #f0f0f0;

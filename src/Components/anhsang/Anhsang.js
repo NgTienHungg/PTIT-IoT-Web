@@ -1,24 +1,24 @@
 import React from 'react';
 import './anhsang.css';
-import { WiLunarEclipse } from 'react-icons/wi';
+import { WiHorizonAlt } from 'react-icons/wi';
 
 function Anhsang() {
-  const lux = 90; // Giả định nhiệt độ
+  const lux = 50; // Giả định nhiệt độ
   let luxClass = 'normal';
 
   // Xác định biểu tượng thời tiết dựa trên nhiệt độ
   let weatherIcon;
   if (lux < 20) {
-    weatherIcon = <WiLunarEclipse />;
+    weatherIcon = <WiHorizonAlt />;
     luxClass = 'toi';
   } else if (lux < 50) {
-    weatherIcon = <WiLunarEclipse />;
+    weatherIcon = <WiHorizonAlt />;
     luxClass = 'hoitoi';
   } else if (lux < 80) {
-    weatherIcon = <WiLunarEclipse />;
+    weatherIcon = <WiHorizonAlt />;
     luxClass = 'sang';
   } else {
-    weatherIcon = <WiLunarEclipse />;
+    weatherIcon = <WiHorizonAlt />;
     luxClass = 'ratsang';
   }
 
@@ -31,7 +31,7 @@ function Anhsang() {
     <div className={`weather-box ${luxClass}`}>
       <div className="weather-info" style={{ color: 'white' }} >
         <div className='weather-icon'>{weatherIcon}</div>
-        <div className='thongtinnhietdo'>{lux}lux</div>
+        <div className='thongtinnhietdo'>{lux} lux</div>
       </div>
     </div>
   );

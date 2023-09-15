@@ -3,7 +3,11 @@
   /* padding: 50px; */
   width: 100%;
   padding-top: 50px;
-  background-image: linear-gradient(109.6deg, rgba(156, 252, 248, 1) 11.2%, rgba(110, 123, 251, 1) 91.1%);
+  background-image: linear-gradient(
+    109.6deg,
+    rgba(156, 252, 248, 1) 11.2%,
+    rgba(110, 123, 251, 1) 91.1%
+  );
 }
 
 .page-chucnang {
@@ -57,9 +61,7 @@
 .page-btn-den,
 .page-btn-quat {
   height: 190px;
-  background-image: linear-gradient(-20deg,
-      #80ccbf 0%,
-      #bfbf58 100%);
+  background-image: linear-gradient(to right, #feac5e 0%, #c779d0, #4bc0c8 100%);
   border-radius: 20px;
   transform: translateZ(50px);
   /* Dịch phần tử lên theo trục Z */
@@ -67,8 +69,6 @@
   /* Đổ bóng */
   margin: 10px 10px;
 }
-
-
 
 .light-btn {
   background-color: #95a5a6;
@@ -92,7 +92,7 @@
 }
 
 .light-btn.on {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 .light-btn.on .light-icon {
@@ -114,7 +114,7 @@
 }
 
 /* css Menu */
-.menuu{
+.menuu {
   display: block;
   z-index: 10;
   position: absolute;

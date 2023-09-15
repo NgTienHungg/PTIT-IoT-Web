@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Chart as ChartJS, CategoryScale, LineElement, LinearScale, PointElement } from "chart.js";
 import { Bar, Line } from "react-chartjs-2";
+import "./chart.css";
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement);
 
@@ -68,7 +69,8 @@ const Charts = () => {
             },
         },
     };
-    return (<div>
+    return (
+    <div chart>
         <Line data={data} options={options} height={310} width={600} />
     </div>);
 }

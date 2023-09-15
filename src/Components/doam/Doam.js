@@ -3,7 +3,7 @@ import React from 'react';
 import { WiHumidity } from 'react-icons/wi';
 
 function Doam() {
-  const humidity = 90; // Giả định nhiệt độ
+  const humidity = 50; // Giả định nhiệt độ
   let humidityClass;
   // Xác định biểu tượng thời tiết dựa trên nhiệt độ
   let weatherIcon;
