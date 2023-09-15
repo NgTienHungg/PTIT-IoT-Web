@@ -31,9 +31,9 @@ const Page = () => {
     // Render giao diện
     return (
         <div className="pagee">
-            {/* <div className="menuu">
+            <div className="menuu">
                 <Menu/>
-            </div> */}
+            </div>
             <div className="page-chucnang">
                 <Nhietdo />
                 <Doam />
