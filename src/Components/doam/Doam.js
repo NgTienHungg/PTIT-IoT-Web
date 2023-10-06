@@ -26,15 +26,6 @@ function Doam() {
     </div>
   </div>
   );
-
-  // return (
-  //   <div className={`weather-box ${humidityClass}`}>
-  //     <div className="weather-info">
-  //       <div className='weather-icon'>{weatherIcon}</div>
-  //       <div className='thongtinnhietdo'>{temperature}°C</div>
-  //     </div>
-  //   </div>
-  // );
 }
 
 export default Doam;

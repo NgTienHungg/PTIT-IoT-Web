@@ -1,9 +1,10 @@
-import Charts from '../Chart/Charts';
 import { useState } from 'react';
+import Charts from '../Chart/Charts';
 import Nhietdo from '../nhietdo/nhietdo';
-import Doam from '../doam/Doam';
 import Anhsang from '../anhsang/Anhsang';
+import Doam from '../doam/Doam';
 import Menu from '../menu/Menu';
+import mqtt from 'precompiled-mqtt';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './page.css'
 
@@ -18,9 +19,17 @@ const Page = () => {
     const [isLightOn, setIsLightOn] = useState(false);
     const [isFanOn, setIsFanOn] = useState(false);
 
+    // Tạo một MQTT client
+    const client = mqtt.connect('wss://broker.hivemq.com:8884/mqtt');
+
     // Hàm bật/tắt đèn
     const toggleLight = () => {
         setIsLightOn(prevState => !prevState);
+
+        // Gửi tin nhắn MQTT khi đèn được bật hoặc tắtz
+        const message = isLightOn ? 'off' : 'on';
+        client.publish('esp32/led', message);
+        console.log("Đã gửi tin nhắn MQTT: " + message + " đến topic esp32/led ");
     };
 
     // Hàm bật/tắt quạt
@@ -30,43 +39,52 @@ const Page = () => {
 
     // Render giao diện
     return (
-        <div className="pagee">
-            <div className="menuu">
-                <Menu/>
-            </div>
-            <div className="page-chucnang">
-                <Nhietdo />
-                <Doam />
-                <Anhsang />
-            </div>
-            <div className="page-btn">
-                <div className="page-bieudo">
-                    <Charts />
+        <>
+            <div className="pagee">
+                <div className="menuu">
+                    <Menu />
                 </div>
-
-                <div className="page-btn-chucnang">
-                    <div className="page-btn-den">
-                        <div className="btn-icon">
-                            <img className="btn-icon-den" src={isLightOn ? urlLightOn : urlLightOff} alt="Bulb" />
-                            <br />
-                            <button className={`light-btn ${isLightOn ? 'on' : 'off'}`} onClick={toggleLight}>
-                                <span className="light-icon"></span>
-                            </button>
-                        </div>
+                <div className="page-chucnang">
+                    <Nhietdo />
+                    <Doam />
+                    <Anhsang />
+                </div>
+                <div className="page-btn">
+                    <div className="page-bieudo">
+                        <Charts />
                     </div>
 
-                    <div className="page-btn-quat">
-                        <div className="btn-icon">
-                            <img className="btn-icon-den" src={isFanOn ? urlFanOn : urlFanOff} alt="Bulb" />
-                            <br />
-                            <button className={`light-btn ${isFanOn ? 'on' : 'off'}`} onClick={toggleFan}>
-                                <span className="light-icon"></span>
-                            </button>
+                    <div className="page-btn-chucnang">
+                        <div className="page-btn-den">
+                            <div className="btn-icon">
+                                <img className="btn-icon-den" src={isLightOn ? urlLightOn : urlLightOff} alt="Bulb" />
+                                <br />
+                                <button className={`light-btn ${isLightOn ? 'on' : 'off'}`} onClick={toggleLight}>
+                                    <span className="light-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="page-btn-quat">
+                            <div className="btn-icon">
+                                <img className="btn-icon-den" src={isFanOn ? urlFanOn : urlFanOff} alt="Bulb" />
+                                <br />
+                                <button className={`light-btn ${isFanOn ? 'on' : 'off'}`} onClick={toggleFan}>
+                                    <span className="light-icon"></span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
-export default Page;
+export default Page
+
+/*
+- MQTT: push từ web, sub từ arduino
+- Arduino: push nhiệt độ độ ẩm, 
+
+
+*/
