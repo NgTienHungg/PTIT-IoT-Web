@@ -24,21 +24,16 @@
 }
 
 .hot {
-  background-image: linear-gradient(110deg, #eed00cd2 20%, #ee5c0df9 80%);
+  background-image: linear-gradient(110deg, #f8da15d2 20%, #ee540df9 80%);
   color: #ffffff;
 }
 
 .normal {
-  background-image: linear-gradient(110deg, #00aaffe8 20%, #ffff01e1 80%);
+  background-image: linear-gradient(110deg, #00aaffe8 20%, #f2fa13e1 80%);
   color: #ffffff;
 }
 
 .cold {
   background-image: linear-gradient(110deg, #ecf4f8f4 20%, #018dffcd 80%);
-  color: #ffffff;
-}
-
-.rainy {
-  background-image: linear-gradient(110deg, #00aaffd2 20%, #ffff01bf 80%);
   color: #ffffff;
 }

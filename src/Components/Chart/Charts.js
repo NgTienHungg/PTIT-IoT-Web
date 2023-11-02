@@ -24,16 +24,16 @@ const initialData = {
     },],
 };
 
-const Charts = () => {
+const Charts = (props) => {
     const nhietdo = [25, 26, 24, 28, 29, 27, 26, 25, 26, 24, 28, 29, 27, 26, 26, 24, 28, 29, 27, 26]
     const doam = [60, 55, 50, 52, 58, 53, 54, 60, 55, 50, 52, 58, 53, 54, 55, 50, 52, 58, 53, 54]
     const [data, setData] = useState(initialData);
 
-    useEffect(() => {
+    useEffect((props) => {
         const interval = setInterval(() => {
-            nhietdo.push(generateRandomValues());
+            nhietdo.push(generateRandomValues);
             nhietdo.shift();
-            doam.push(generateRandomValues());
+            doam.push(generateRandomValues);
             doam.shift();
 
             setData(prevData => ({
@@ -43,7 +43,7 @@ const Charts = () => {
         }, 2000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [props]);
 
     const generateRandomValues = () => {
         return Math.floor(Math.random() * 10 + 20);

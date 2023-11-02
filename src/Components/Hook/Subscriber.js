@@ -8,7 +8,7 @@ const Subscriber = ({ sub, unSub, showUnsub }) => {
 
   // topic & QoS for MQTT subscribing
   const record = {
-    topic: 'testtopic/react',
+    topic: 'esp32/led',
     qos: 0,
   }
 

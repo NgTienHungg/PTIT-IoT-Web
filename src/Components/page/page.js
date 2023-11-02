@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Charts from '../Chart/Charts';
 import Nhietdo from '../nhietdo/nhietdo';
 import Anhsang from '../anhsang/Anhsang';
@@ -14,19 +14,54 @@ const urlLightOff = "https://i.imgur.com/OXXnlPH.png";
 const urlFanOn = "https://i.imgur.com/Wx2lXcJ.png";
 const urlFanOff = "https://i.imgur.com/ynfVzo0.png";
 
+const TEMPERATURE_TOPIC = 'dht11/temperature';
+const HUMIDITY_TOPIC = 'dht11/humidity';
+const LIGHT_TOPIC = 'dht11/light';
+
 const Page = () => {
     // Khởi tạo các trạng thái cho đèn và quạt
     const [isLightOn, setIsLightOn] = useState(false);
     const [isFanOn, setIsFanOn] = useState(false);
 
+    const [temperature, setTemperature] = useState(30); // Giả định nhiệt độ
+    const [humidity, setHumidity] = useState(50); // Giả định độ ẩm
+    const [light, setLight] = useState(100); // Giả định độ sáng
+
     // Tạo một MQTT client
     const client = mqtt.connect('wss://broker.hivemq.com:8884/mqtt');
+
+    useEffect(() => {
+        // Khi kết nối thành công, subscribe các topic
+        client.on('connect', () => {
+            client.subscribe('dht11/temperature');
+            client.subscribe('dht11/humidity');
+            client.subscribe('dht11/light');
+        });
+
+        // Khi nhận được tin nhắn, cập nhật các trạng thái
+        client.on('message', (topic, payload) => {
+            if (topic === TEMPERATURE_TOPIC) {
+                console.log("Topic: " + TEMPERATURE_TOPIC + " - Message: " + payload);
+                setTemperature(payload);
+            }
+            else if (topic === HUMIDITY_TOPIC) {
+                setHumidity(payload);
+            }
+            else if (topic === LIGHT_TOPIC) {
+                setLight(payload);
+            }
+        });
+
+        return () => {
+            client.unsubscribe('dht11/temperature');
+        };
+    }, [client, temperature, humidity, light]);
 
     // Hàm bật/tắt đèn
     const toggleLight = () => {
         setIsLightOn(prevState => !prevState);
 
-        // Gửi tin nhắn MQTT khi đèn được bật hoặc tắtz
+        // Gửi tin nhắn MQTT khi đèn được bật hoặc tắt
         const message = isLightOn ? 'off' : 'on';
         client.publish('esp32/led', message);
         console.log("Đã gửi tin nhắn MQTT: " + message + " đến topic esp32/led ");
@@ -41,17 +76,20 @@ const Page = () => {
     return (
         <>
             <div className="pagee">
-                <div className="menuu">
+                {/* <div className="menuu">
                     <Menu />
-                </div>
+                </div> */}
+
+                {/* Render các thông số hiển thị */}
                 <div className="page-chucnang">
-                    <Nhietdo />
-                    <Doam />
-                    <Anhsang />
+                    <Nhietdo temperature={temperature} />
+                    <Doam humidity={humidity} />
+                    <Anhsang light={light} />
                 </div>
+
                 <div className="page-btn">
                     <div className="page-bieudo">
-                        <Charts />
+                        <Charts temperature={temperature} humidity={humidity} light={light} />
                     </div>
 
                     <div className="page-btn-chucnang">
@@ -85,6 +123,4 @@ export default Page
 /*
 - MQTT: push từ web, sub từ arduino
 - Arduino: push nhiệt độ độ ẩm, 
-
-
 */

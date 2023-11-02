@@ -46,10 +46,8 @@
   display: inline;
   width: 62.3%;
   background-color: #f2e9e8;
-  transform: translateZ(50px);
-  /* Dịch phần tử lên theo trục Z */
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  /* Đổ bóng */
+  transform: translateZ(50px); /* Dịch phần tử lên theo trục Z */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Đổ bóng */
   margin: 10px 10px;
 }
 
@@ -61,7 +59,12 @@
 .page-btn-den,
 .page-btn-quat {
   height: 190px;
-  background-image: linear-gradient(to right, #feac5e 0%, #c779d0, #4bc0c8 100%);
+  background-image: linear-gradient(
+    to right,
+    #feac5e 0%,
+    #c779d0,
+    #4bc0c8 100%
+  );
   border-radius: 20px;
   transform: translateZ(50px);
   /* Dịch phần tử lên theo trục Z */
@@ -92,7 +95,7 @@
 }
 
 .light-btn.on {
-  background-color: #2196f3;
+  background-color: #18ce27;
 }
 
 .light-btn.on .light-icon {

@@ -8,7 +8,7 @@ const Publisher = ({ publish }) => {
 
   // topic, QoS for publishing message
   const record = {
-    topic: 'testtopic/react',
+    topic: 'esp32/led',
     qos: 0,
   };
 
