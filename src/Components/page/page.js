@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Charts from '../Chart/Charts';
-import Nhietdo from '../nhietdo/nhietdo';
+import Temperature from '../temperature/temperature';
 import Anhsang from '../anhsang/Anhsang';
 import Doam from '../doam/Doam';
 import Menu from '../menu/Menu';
@@ -82,7 +82,7 @@ const Page = () => {
 
                 {/* Render các thông số hiển thị */}
                 <div className="page-chucnang">
-                    <Nhietdo temperature={temperature} />
+                    <Temperature temperature={temperature} />
                     <Doam humidity={humidity} />
                     <Anhsang light={light} />
                 </div>

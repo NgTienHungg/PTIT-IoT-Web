@@ -1,8 +1,8 @@
 import React from 'react';
 import { WiDaySunny, WiCloudy, WiRain, WiSnow } from 'react-icons/wi';
-import './nhietdo.css';
+import './temperature.css';
 
-function Nhietdo(props) {
+function Temperature(props) {
   // Nhận nhiệt độ từ props
   const temperature = parseInt(props.temperature);
 
@@ -32,4 +32,4 @@ function Nhietdo(props) {
   );
 }
 
-export default Nhietdo;
+export default Temperature;
