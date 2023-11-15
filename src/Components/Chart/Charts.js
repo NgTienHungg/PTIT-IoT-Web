@@ -31,9 +31,9 @@ const Charts = (props) => {
 
     useEffect((props) => {
         const interval = setInterval(() => {
-            nhietdo.push(generateRandomValues);
+            nhietdo.push(0);
             nhietdo.shift();
-            doam.push(generateRandomValues);
+            doam.push(0);
             doam.shift();
 
             setData(prevData => ({
@@ -45,9 +45,9 @@ const Charts = (props) => {
         return () => clearInterval(interval);
     }, [props]);
 
-    const generateRandomValues = () => {
-        return Math.floor(Math.random() * 10 + 20);
-    }
+    // const generateRandomValues = () => {
+    //     return Math.floor(Math.random() * 10 + 20);
+    // }
 
     const options = {
         scales: {
@@ -70,9 +70,9 @@ const Charts = (props) => {
         },
     };
     return (
-    <div chart>
-        <Line data={data} options={options} height={310} width={600} />
-    </div>);
+        <div chart>
+            <Line data={data} options={options} height={300} width={600} />
+        </div>);
 }
 
 export default Charts;

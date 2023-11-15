@@ -19,7 +19,7 @@ function App() {
         }
       </Routes>
 
-      <HookMqtt />,
+      {/* <HookMqtt />, */}
     </div>
   )
 }

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import Charts from '../Chart/Charts';
-import Temperature from '../temperature/temperature';
+import Temperature from '../dht11/temperature';
+import Humidity from '../dht11/humidity';
 import Anhsang from '../anhsang/Anhsang';
-import Doam from '../doam/Doam';
 import Menu from '../menu/Menu';
 import mqtt from 'precompiled-mqtt';
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -33,15 +33,16 @@ const Page = () => {
     useEffect(() => {
         // Khi kết nối thành công, subscribe các topic
         client.on('connect', () => {
-            client.subscribe('dht11/temperature');
-            client.subscribe('dht11/humidity');
-            client.subscribe('dht11/light');
+            client.subscribe(TEMPERATURE_TOPIC);
+            client.subscribe(HUMIDITY_TOPIC);
+            client.subscribe(LIGHT_TOPIC);
         });
 
         // Khi nhận được tin nhắn, cập nhật các trạng thái
         client.on('message', (topic, payload) => {
+            console.log("Topic: " + topic + " - Message: " + payload);
+
             if (topic === TEMPERATURE_TOPIC) {
-                console.log("Topic: " + TEMPERATURE_TOPIC + " - Message: " + payload);
                 setTemperature(payload);
             }
             else if (topic === HUMIDITY_TOPIC) {
@@ -53,7 +54,9 @@ const Page = () => {
         });
 
         return () => {
-            client.unsubscribe('dht11/temperature');
+            client.unsubscribe(TEMPERATURE_TOPIC);
+            client.unsubscribe(HUMIDITY_TOPIC);
+            client.unsubscribe(LIGHT_TOPIC);
         };
     }, [client, temperature, humidity, light]);
 
@@ -70,6 +73,11 @@ const Page = () => {
     // Hàm bật/tắt quạt
     const toggleFan = () => {
         setIsFanOn(prevState => !prevState);
+
+        // Gửi tin nhắn MQTT khi đèn được bật hoặc tắt
+        const message = isLightOn ? 'off' : 'on';
+        client.publish('esp32/led', message);
+        console.log("Đã gửi tin nhắn MQTT: " + message + " đến topic esp32/led ");
     };
 
     // Render giao diện
@@ -83,7 +91,7 @@ const Page = () => {
                 {/* Render các thông số hiển thị */}
                 <div className="page-chucnang">
                     <Temperature temperature={temperature} />
-                    <Doam humidity={humidity} />
+                    <Humidity humidity={humidity} />
                     <Anhsang light={light} />
                 </div>
 
