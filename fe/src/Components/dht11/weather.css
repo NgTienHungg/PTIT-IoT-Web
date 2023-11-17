@@ -1,0 +1,143 @@
+.weather-box {
+  width: 30%;
+  height: 100%;
+  margin: 0 10px;
+  border-radius: 25px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.weather-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-icon {
+  margin: 0;
+  font-size: 80px;
+}
+
+.weather-info {
+  font-size: 40px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/*-----------------------------------*/
+
+.temp-hot {
+  background-image: linear-gradient(110deg, #fdde12d2 20%, #f75307f9 80%);
+  color: #ffffff;
+}
+
+.temp-normal {
+  background-image: linear-gradient(110deg, #fdde12d2 20%, #f75307f9 80%);
+  color: #ffffff;
+}
+
+.temp-cold {
+  background-image: linear-gradient(110deg, #fdde12d2 20%, #f75307f9 80%);
+  color: #ffffff;
+}
+
+/*-----------------------------------*/
+
+/* Màu sắc cho các loại thời tiết */
+.hum-low {
+  background: linear-gradient(120deg, #3498db 20%, #0074a9 80%);
+  background-size: 100% 100%;
+  color: #fff;
+}
+
+.hum-average {
+  background: linear-gradient(120deg, #3498db 20%, #0074a9 80%);
+  background-size: 100% 100%;
+  color: #fff;
+}
+
+.hum-high {
+   background: linear-gradient(120deg, #3498db 20%, #0074a9 80%);
+  background-size: 100% 100%;
+  color: #fff;
+}
+
+/*-----------------------------------*/
+
+/* Màu sắc cho các loại thời tiết */
+.toi {
+  background-image: linear-gradient(109.6deg, #e5e5e57d 40%, #cdcdcd4e 90%);
+  color: #ffffff;
+}
+
+.hoitoi {
+  background-image: linear-gradient(109.6deg, #e5e5e57d 40%, #cdcdcd4e 90%);
+  color: #ffffffb5;
+  /* Màu chữ đen */
+}
+
+.sang {
+  /* background-image: linear-gradient(109.6deg, rgba(156, 252, 248, 1) 11.2%, rgba(110, 123, 251, 1) 91.1%); */
+  background-image: linear-gradient(109.6deg, #e5e5e57d 40%, #cdcdcd4e 90%);
+  color: #ffffff;
+  /* Màu chữ trắng */
+}
+
+.ratsang {
+  background-image: linear-gradient(109.6deg, #ffffff65 10%, #e4e4e460 90%);
+  color: #ffffff;
+  /* Màu chữ trắng */
+}
+
+/*-----------------------------------*/
+
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+#dust-level {
+  font-size: 36px;
+}
+
+.red-background {
+  background-color: red;
+  animation: flash 1s infinite alternate;
+}
+
+@keyframes flash {
+  0% {
+    background-color: red;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.thongtindobui {
+  font-size: 60px;
+  /* padding-left: 15%; */
+  padding-top: 50px;
+}
+.dobui {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0 0px;
+  width: 27%;
+  margin: 0 10px;
+  height: 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Đổ bóng */
+  color: #ffffff;
+}
+.dobui .red-background {
+  animation: flash-red 1s infinite alternate;
+}
+@keyframes flash-red {
+  0% {
+    background-color: red;
+  }
+  100% {
+    background-color: transparent;
+  }
+}

@@ -1,0 +1,144 @@
+.menu-data {
+  background-image: linear-gradient(
+    109.6deg,
+    rgba(156, 252, 248, 1) 11.2%,
+    rgba(110, 123, 251, 1) 91.1%
+  );
+  height: 707px;
+  background-size: 100vw 100vh;background-size: 100vw 100vh;
+}
+.container-data {
+  position: absolute;
+  padding: 0 70px;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  text-align: center;
+  background-image: linear-gradient(
+    109.6deg,
+    rgba(156, 252, 248, 1) 11.2%,
+    rgba(110, 123, 251, 1) 91.1%
+  );
+  /* height: 130%; */
+  width: 90.8%;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+  padding-bottom: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  border: 1px solid #bab9b9;
+}
+
+/* CSS cho tiêu đề cột */
+th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px;
+}
+
+.id_chan {
+  background-color: rgba(255, 255, 255, 0.532);
+  color: rgb(0, 0, 0);
+  /* Màu chữ trắng để tốt hơn */
+}
+.id_le {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  /* Màu chữ trắng để tốt hơn */
+}
+
+/* tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+} */
+
+/* CSS cho ô dữ liệu */
+td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Hover trên hàng */
+tr:hover {
+  background-color: #9d9d9d73;
+}
+.menuu {
+  display: block;
+  z-index: 10;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 50;
+}
+.search-khung {
+  padding-bottom: 30px;
+
+}
+.search-ip {
+  height: 30px;
+  font-size: 15px;
+  border-radius: 10px;
+  margin-left: 10px;
+  text-align: center;
+}
+.btn-exit {
+  margin-left: 10px;
+  height: 35px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+.btn-exit-search {
+  background-color: #00ff11;
+}
+.btn-exit-search:hover {
+  background-color: #00ff11b6;
+}
+.btn-exit-exit {
+  background-color: #efff12;
+}
+.btn-exit-exit:hover {
+  background-color: #ffe712bd;
+}
+.btn-exit-clear {
+  background-color: #ff1216;
+}
+
+.pagination {
+  margin-top: 50px;
+}
+.btn-truoc {
+  position: absolute;
+  left: 10px;
+  border-radius: 10px;
+  width: 70px;
+  height: 25px;
+  cursor: pointer;
+}
+.btn-tiep {
+  position: absolute;
+  right: 10px;
+  width: 70px;
+  border-radius: 10px;
+  height: 25px;
+  cursor: pointer;
+}
+.ip-trang {
+  text-align: center;
+  position: absolute;
+  width: 70px;
+  border-radius: 10px;
+  height: 20px;
+  cursor: pointer;
+  background-color: #ffff68;
+}

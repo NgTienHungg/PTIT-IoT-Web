@@ -1,0 +1,35 @@
+.container-data {
+  position: absolute;
+  padding: 0 70px;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  text-align: center;
+  background-image: linear-gradient(
+    109.6deg,
+    rgba(156, 252, 248, 1) 11.2%,
+    rgba(110, 123, 251, 1) 91.1%
+  );
+  /* height: 130%; */
+  width: 90.8%;
+}
+
+.green-row {
+  background-color: rgb(24, 209, 24);
+  color: rgb(0, 0, 0); /* Màu chữ trắng để tốt hơn */
+}
+
+/* Màu đỏ cho trạng thái "off" */
+.red-row {
+  background-color: rgb(227, 36, 36);
+  color: rgb(0, 0, 0); /* Màu chữ trắng để tốt hơn */
+}
+
+.valueDateIp {
+  margin: 5px auto;
+  background: #fff;
+  height: 27px;
+  width: 330px;
+  border-radius: 10px;
+  font-weight: 500px;
+  color: red;
+}
